@@ -1,0 +1,2203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ТОРТИКИ — торты ручной работы в Воронеже</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&family=Sacramento&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            color: #2d1f1a;
+            min-height: 100vh;
+            background: url('main-cake.jpg') center/cover fixed no-repeat;
+            background-color: #fcf8f5;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 248, 245, 0.85);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ШАПКА */
+        header {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(240, 227, 221, 0.5);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+            font-family: 'Sacramento', cursive;
+            font-size: 34px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: #d48c7a;
+        }
+
+        .logo-text small {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            color: #7a5f4f;
+            display: block;
+            margin-top: 2px;
+            letter-spacing: 0;
+        }
+
+        .header-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .header-links a {
+            text-decoration: none;
+            color: #2d1f1a;
+            font-weight: 400;
+            transition: 0.2s;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .header-links a:hover {
+            color: #d48c7a;
+        }
+        .btn-contact-header {
+            background: linear-gradient(135deg, #e8b3a0, #dba08c);
+            color: #fff !important;
+            padding: 12px 26px;
+            border-radius: 50px;
+            font-weight: 600 !important;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 6px 20px rgba(232, 179, 160, 0.3);
+            transition: 0.3s;
+        }
+        .btn-contact-header:hover {
+            background: linear-gradient(135deg, #d48c7a, #c27a67) !important;
+            color: #fff !important;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 140, 122, 0.5);
+        }
+
+        /* ГЛАВНЫЙ ЭКРАН */
+        .hero {
+            padding: 40px 0 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-left h1 {
+            font-family: 'Sacramento', cursive;
+            font-size: 52px;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+        .hero-left h1 span {
+            color: #d48c7a;
+        }
+        .hero-left p {
+            font-size: 18px;
+            color: #5f4a3a;
+            margin: 20px 0 30px;
+            line-height: 1.6;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #e8b3a0, #dba08c);
+            color: #fff;
+            padding: 20px 55px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(232, 179, 160, 0.3);
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #d48c7a, #c27a67);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(212, 140, 122, 0.5);
+        }
+
+        .hero-right {
+            border-radius: 40px;
+            height: 400px;
+            background: url('main-cake.jpg') center/cover no-repeat;
+            border: 4px solid rgba(255,255,255,0.7);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+            transition: transform 2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        box-shadow 1s ease,
+                        border-color 1s ease;
+            z-index: 10;
+            transform-origin: center center;
+        }
+
+        .hero-right.zoomed {
+            transform: scale(1.6) translate(-25%, 15%);
+            box-shadow: 0 50px 100px rgba(212, 140, 122, 0.4);
+            border-color: rgba(212, 140, 122, 0.6);
+            z-index: 999;
+            position: relative;
+        }
+
+        .hero-right.returning {
+            transition: transform 2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        box-shadow 1s ease,
+                        border-color 1s ease;
+        }
+
+        /* СЕКЦИИ */
+        .section-block {
+            padding: 70px 0;
+            scroll-margin-top: 80px;
+            position: relative;
+            z-index: 1;
+        }
+        .section-block .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-block .section-header h2 {
+            font-family: 'Sacramento', cursive;
+            font-size: 50px;
+            font-weight: 400;
+            color: #2d1f1a;
+        }
+        .section-block .section-header p {
+            font-family: 'Raleway', sans-serif;
+            color: #d48c7a;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 8px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-block .section-header p::before,
+        .section-block .section-header p::after {
+            content: '—';
+            margin: 0 12px;
+            color: rgba(212, 140, 122, 0.5);
+        }
+
+        .section-block.transparent {
+            background: transparent;
+            backdrop-filter: none;
+        }
+
+        /* СЕТКА */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            justify-items: center;
+            overflow: visible;
+        }
+
+        /* КАРТОЧКИ ТОРТОВ */
+        .cake-card {
+            width: 100%;
+            max-width: 260px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .cake-card.visible { opacity: 1; }
+        .cake-card:hover { z-index: 1000; }
+
+        .cake-photo-zoom {
+            position: relative;
+            height: 320px;
+            border-radius: 30px;
+            overflow: hidden;
+            border: 3px solid rgba(240, 232, 227, 0.5);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        box-shadow 0.4s ease,
+                        border-color 0.3s ease;
+            transform-origin: center center;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .cake-card:first-child .cake-photo-zoom { transform-origin: left center; }
+        .cake-card:last-child .cake-photo-zoom { transform-origin: right center; }
+
+        .cake-photo-zoom:hover {
+            transform: scale(1.36);
+            z-index: 100;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+            border-color: #d48c7a;
+        }
+
+        .cake-photo-zoom .cake-bg {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .cake-photo-zoom .cake-bg::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: inherit;
+        }
+
+        .cake-photo-zoom .cake-name-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 50px 15px 18px;
+            text-align: center;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+            z-index: 2;
+        }
+
+        .cake-photo-zoom .cake-name-overlay h3 {
+            font-family: 'Sacramento', cursive;
+            font-size: 26px;
+            font-weight: 400;
+            color: #fff;
+            line-height: 1.2;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .cake-card .cake-bottom {
+            padding: 16px 8px 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .cake-card .cake-bottom .desc {
+            font-size: 13px;
+            color: #7a5f4f;
+            line-height: 1.5;
+            min-height: 40px;
+        }
+
+        .cake-card .cake-bottom .btn-order {
+            background: linear-gradient(135deg, #e8b3a0, #dba08c);
+            color: #fff;
+            border: none;
+            padding: 12px 0;
+            width: 100%;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 18px rgba(232, 179, 160, 0.3);
+        }
+
+        .cake-card .cake-bottom .btn-order:hover {
+            background: linear-gradient(135deg, #d48c7a, #c27a67);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 140, 122, 0.5);
+        }
+
+        /* КАРТОЧКИ НАЧИНОК */
+        .filling-card {
+            width: 100%;
+            max-width: 260px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .filling-card.visible { opacity: 1; }
+        .filling-card:hover { z-index: 1000; }
+
+        .filling-photo-zoom {
+            position: relative;
+            height: 320px;
+            border-radius: 30px;
+            overflow: hidden;
+            border: 3px solid rgba(240, 232, 227, 0.5);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        box-shadow 0.4s ease,
+                        border-color 0.3s ease;
+            transform-origin: center center;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .filling-card:first-child .filling-photo-zoom { transform-origin: left center; }
+        .filling-card:last-child .filling-photo-zoom { transform-origin: right center; }
+
+        .filling-photo-zoom:hover {
+            transform: scale(1.36);
+            z-index: 100;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+            border-color: #d48c7a;
+        }
+
+        .filling-photo-zoom .filling-bg {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .filling-photo-zoom .filling-bg::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: inherit;
+        }
+
+        .filling-photo-zoom .filling-name-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 50px 15px 18px;
+            text-align: center;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+            z-index: 2;
+        }
+
+        .filling-photo-zoom .filling-name-overlay h3 {
+            font-family: 'Sacramento', cursive;
+            font-size: 26px;
+            font-weight: 400;
+            color: #fff;
+            line-height: 1.2;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        /* МОИ РАБОТЫ */
+        .horizontal-scroll {
+            display: flex;
+            gap: 25px;
+            overflow-x: auto;
+            padding: 20px 0 30px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .horizontal-scroll::-webkit-scrollbar { height: 8px; }
+        .horizontal-scroll::-webkit-scrollbar-track { background: rgba(240, 232, 227, 0.3); border-radius: 10px; }
+        .horizontal-scroll::-webkit-scrollbar-thumb { background: #d48c7a; border-radius: 10px; }
+
+        .work-card {
+            flex: 0 0 260px;
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            border: 3px solid rgba(240, 232, 227, 0.5);
+            height: 320px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .work-card.visible { opacity: 1; }
+
+        .work-card .work-bg {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+        }
+
+        .work-card .work-bg::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: inherit;
+        }
+
+        .work-card .work-name-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 50px 15px 18px;
+            text-align: center;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+            z-index: 2;
+        }
+
+        .work-card .work-name-overlay h3 {
+            font-family: 'Sacramento', cursive;
+            font-size: 26px;
+            font-weight: 400;
+            color: #fff;
+            line-height: 1.2;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+            margin-bottom: 4px;
+        }
+
+        .work-card .work-name-overlay .desc {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ОТЗЫВЫ */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 30px;
+            padding: 30px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+            border: 1px solid rgba(240, 232, 227, 0.4);
+            transition: 0.3s;
+            opacity: 0;
+        }
+
+        .review-card.visible { opacity: 1; transition: opacity 0.6s ease; }
+        .review-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(212, 140, 122, 0.15); }
+
+        .review-stars { color: #d48c7a; font-size: 20px; margin-bottom: 15px; }
+        .review-text { font-size: 15px; color: #5f4a3a; line-height: 1.7; font-style: italic; margin-bottom: 20px; }
+        .review-author { display: flex; align-items: center; gap: 12px; }
+        .review-avatar {
+            width: 45px; height: 45px; border-radius: 50%;
+            background: linear-gradient(135deg, #f3e3db, #e8d3c9);
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Sacramento', cursive; font-size: 22px; color: #d48c7a; font-weight: 700;
+        }
+        .review-name { font-weight: 600; font-size: 15px; }
+        .review-date { font-size: 13px; color: #a89080; }
+
+        /* FAQ */
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 25px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(240, 232, 227, 0.4);
+            overflow: hidden;
+            transition: 0.3s;
+            opacity: 0;
+        }
+
+        .faq-item.visible { opacity: 1; transition: opacity 0.6s ease; }
+        .faq-item:hover { border-color: rgba(212, 140, 122, 0.3); box-shadow: 0 10px 30px rgba(212, 140, 122, 0.1); }
+
+        .faq-question {
+            padding: 22px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 16px;
+            color: #2d1f1a;
+            transition: 0.3s;
+        }
+
+        .faq-question:hover { color: #d48c7a; }
+        .faq-question::after {
+            content: '+';
+            font-size: 26px;
+            color: #d48c7a;
+            font-weight: 300;
+            transition: transform 0.3s;
+            line-height: 1;
+        }
+        .faq-item.active .faq-question::after { transform: rotate(45deg); }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 30px;
+            color: #5f4a3a;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+        .faq-item.active .faq-answer { max-height: 300px; padding: 0 30px 22px; }
+
+        /* О НАС */
+        .about { padding: 70px 0; scroll-margin-top: 80px; background: transparent; position: relative; z-index: 1; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about-text h2 { font-family: 'Sacramento', cursive; font-size: 44px; font-weight: 400; margin-bottom: 15px; }
+        .about-text p { color: #5f4a3a; margin: 16px 0; line-height: 1.7; }
+        .about-img {
+            height: 352px;
+            border-radius: 40px;
+            background: url('about.jpg') center/cover no-repeat;
+            border: 4px solid rgba(255,255,255,0.7);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* ФУТЕР */
+        footer {
+            background: rgba(45, 31, 26, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: #f0e3dd;
+            padding: 40px 0;
+            border-radius: 40px 40px 0 0;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            z-index: 1;
+        }
+        .footer-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; }
+        .footer-grid .social a { color: #f0e3dd; text-decoration: none; margin-right: 20px; font-weight: 300; cursor: pointer; }
+        .footer-grid .social a:hover { color: #d48c7a; }
+
+        /* ========== МОДАЛЬНОЕ ОКНО "СВЯЗАТЬСЯ" ========== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal {
+            background: #fff;
+            border-radius: 40px;
+            padding: 45px 40px;
+            max-width: 440px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal h3 {
+            font-family: 'Sacramento', cursive;
+            font-size: 34px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+        .modal p { color: #5f4a3a; margin-bottom: 28px; line-height: 1.6; }
+        .modal .btn-contact {
+            display: block;
+            width: 100%;
+            padding: 16px 0;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: 0.3s;
+            margin: 10px 0;
+            border: none;
+            cursor: pointer;
+            font-family: 'Raleway', sans-serif;
+        }
+        .modal .btn-tg-modal { background: linear-gradient(135deg, #e8b3a0, #dba08c); color: #fff; }
+        .modal .btn-tg-modal:hover { background: linear-gradient(135deg, #d48c7a, #c27a67); transform: scale(1.02); box-shadow: 0 10px 25px rgba(212, 140, 122, 0.4); }
+        .modal .btn-phone-modal { background: linear-gradient(135deg, #e8b3a0, #dba08c); color: #fff; }
+        .modal .btn-phone-modal:hover { background: linear-gradient(135deg, #d48c7a, #c27a67); transform: scale(1.02); box-shadow: 0 10px 25px rgba(212, 140, 122, 0.4); }
+        .modal .btn-close {
+            display: block;
+            margin-top: 15px;
+            background: none;
+            border: none;
+            color: #7a5f4f;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .modal .btn-close:hover { color: #2d1f1a; }
+        .modal .modal-buttons { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+
+        /* ========== КОНСТРУКТОР ========== */
+        .constructor-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(6px);
+            z-index: 1500;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .constructor-overlay.active { display: flex; }
+
+        .constructor {
+            background: #fff;
+            border-radius: 40px;
+            padding: 35px 35px 30px;
+            max-width: 790px;
+            width: 100%;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+            text-align: center;
+        }
+
+        .constructor h2 {
+            font-family: 'Sacramento', cursive;
+            font-size: 44px;
+            font-weight: 400;
+            color: #d48c7a;
+            margin-bottom: 4px;
+        }
+
+        .constructor .constructor-subtitle {
+            color: #5f4a3a;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .constructor-cake-photo {
+            height: 380px;
+            border-radius: 30px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: 4px solid rgba(255,255,255,0.8);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .constructor-cake-photo .cake-name-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: 'Sacramento', cursive;
+            font-size: 32px;
+            color: #fff;
+            text-shadow: 
+                0 2px 8px rgba(0, 0, 0, 0.6),
+                0 0 15px rgba(0, 0, 0, 0.4);
+            z-index: 3;
+            line-height: 1.1;
+        }
+
+        .constructor-cake-photo .filling-overlay {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 33.33%;
+            height: 69%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.9);
+            border-right: none;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(-50%) translateX(30px);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .constructor-cake-photo .filling-overlay.visible {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+
+        .constructor-cake-photo .filling-overlay::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 30%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
+            z-index: 1;
+            border-bottom-left-radius: 17px;
+            pointer-events: none;
+        }
+
+        .constructor-cake-photo .filling-overlay::after {
+            content: attr(data-filling-name);
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: transparent;
+            color: #fff;
+            font-family: 'Sacramento', cursive;
+            font-size: 16px;
+            white-space: nowrap;
+            max-width: 95%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-shadow: 
+                0 2px 8px rgba(0, 0, 0, 0.8),
+                0 0 12px rgba(0, 0, 0, 0.6);
+            z-index: 3;
+        }
+
+        .constructor-cake-photo .weight-overlay {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(212, 140, 122, 0.95);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 50px;
+            font-family: 'Sacramento', cursive;
+            font-size: 26px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 4;
+            line-height: 1;
+            min-width: 70px;
+            text-align: center;
+        }
+
+        .constructor-cake-photo .weight-overlay.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .constructor-actions {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .constructor-btn {
+            background: rgba(243, 227, 219, 0.6);
+            border: 2px solid transparent;
+            border-radius: 18px;
+            padding: 0 12px;
+            height: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            color: #2d1f1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .constructor-btn:hover {
+            background: rgba(243, 227, 219, 0.95);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 140, 122, 0.15);
+        }
+
+        .constructor-btn.filled {
+            background: linear-gradient(135deg, #d48c7a, #c27a67);
+            color: #fff;
+            border-color: #d48c7a;
+            box-shadow: 0 8px 20px rgba(212, 140, 122, 0.4);
+        }
+
+        .constructor-order-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #2d1f1a, #3d2b1f);
+            color: #fff;
+            border: none;
+            padding: 18px 0;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(45, 31, 26, 0.25);
+            font-family: 'Raleway', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .constructor-order-btn:hover:not(:disabled) {
+            background: linear-gradient(135deg, #d48c7a, #c27a67);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(212, 140, 122, 0.4);
+        }
+
+        .constructor-order-btn:disabled {
+            background: #d4c5bd;
+            cursor: not-allowed;
+            box-shadow: none;
+            opacity: 0.7;
+        }
+
+        .constructor-order-btn:not(:disabled) {
+            animation: subtlePulse 2s infinite;
+        }
+
+        @keyframes subtlePulse {
+            0%, 100% { box-shadow: 0 8px 25px rgba(45, 31, 26, 0.25); }
+            50% { box-shadow: 0 8px 25px rgba(212, 140, 122, 0.5); }
+        }
+
+        .constructor-close {
+            display: block;
+            margin-top: 15px;
+            background: none;
+            border: none;
+            color: #7a5f4f;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .constructor-close:hover { color: #2d1f1a; }
+
+        /* ========== ВЛОЖЕННЫЕ МОДАЛЬНЫЕ ОКНА ========== */
+        .inner-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(6px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .inner-modal-overlay.active { display: flex; }
+
+        .inner-modal {
+            background: #fff;
+            border-radius: 40px;
+            padding: 30px 30px 25px;
+            max-width: 790px;
+            width: 100%;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+            animation: fadeIn 0.3s ease;
+            max-height: 90vh;
+            min-height: 500px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        .inner-modal h3 {
+            font-family: 'Sacramento', cursive;
+            font-size: 42px;
+            font-weight: 400;
+            margin-bottom: 4px;
+            color: #d48c7a;
+        }
+
+        .inner-modal .modal-subtitle {
+            color: #5f4a3a;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .inner-modal .scroll-row {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            overflow-y: visible;
+            padding: 45px 5px 45px;
+            -webkit-overflow-scrolling: touch;
+            margin-bottom: 10px;
+        }
+
+        .inner-modal .scroll-row::-webkit-scrollbar { height: 8px; }
+        .inner-modal .scroll-row::-webkit-scrollbar-track { background: rgba(240, 232, 227, 0.4); border-radius: 10px; margin: 0 20px; }
+        .inner-modal .scroll-row::-webkit-scrollbar-thumb { background: #d48c7a; border-radius: 10px; }
+
+        .opt-card {
+            flex: 0 0 200px;
+            background: transparent;
+            border-radius: 22px;
+            overflow: hidden;
+            border: 3px solid rgba(240, 232, 227, 0.5);
+            cursor: pointer;
+            position: relative;
+            height: 250px;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        box-shadow 0.4s ease,
+                        border-color 0.3s ease;
+            transform-origin: center center;
+            z-index: 1;
+        }
+
+        .opt-card:first-child { transform-origin: left center; }
+        .opt-card:last-child { transform-origin: right center; }
+
+        .opt-card:hover {
+            transform: scale(1.36);
+            z-index: 100;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+            border-color: #d48c7a;
+        }
+
+        .opt-card.selected {
+            border-color: #d48c7a;
+            box-shadow: 0 12px 35px rgba(212, 140, 122, 0.4);
+        }
+
+        .opt-card.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 32px;
+            height: 32px;
+            background: #d48c7a;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            z-index: 4;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .opt-img {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            z-index: 1;
+        }
+
+        .opt-img.weight-stub {
+            background: linear-gradient(135deg, #f3e3db, #e8d3c9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Sacramento', cursive;
+            font-size: 64px;
+            color: #d48c7a;
+            letter-spacing: 2px;
+        }
+
+        .opt-body {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 40px 12px 14px;
+            text-align: center;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+            z-index: 2;
+        }
+
+        .opt-body .name {
+            font-weight: 600;
+            font-size: 14px;
+            color: #fff;
+            line-height: 1.3;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .wishes-textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 20px;
+            border: 2px solid rgba(240, 232, 227, 0.6);
+            background: rgba(255, 255, 255, 0.7);
+            font-family: 'Raleway', sans-serif;
+            font-size: 15px;
+            color: #2d1f1a;
+            resize: vertical;
+            min-height: 110px;
+            transition: 0.3s;
+            outline: none;
+            margin-bottom: 20px;
+        }
+
+        .wishes-textarea:focus {
+            border-color: #d48c7a;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 0 0 4px rgba(212, 140, 122, 0.1);
+        }
+
+        .wishes-textarea::placeholder { color: #a89080; }
+
+        .inner-modal-btn {
+            display: block;
+            width: 100%;
+            padding: 16px 0;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: 0.3s;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .inner-modal-btn.primary {
+            background: linear-gradient(135deg, #d48c7a, #c27a67);
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(212, 140, 122, 0.35);
+        }
+
+        .inner-modal-btn.primary:hover {
+            background: linear-gradient(135deg, #c27a67, #b06a58);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(212, 140, 122, 0.4);
+        }
+
+        .inner-modal-btn.tg {
+            background: linear-gradient(135deg, #e8b3a0, #dba08c);
+            color: #fff;
+        }
+
+        .inner-modal-btn.tg:hover {
+            background: linear-gradient(135deg, #d48c7a, #c27a67);
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(212, 140, 122, 0.4);
+        }
+
+        .inner-modal-btn.tg:disabled {
+            background: #d4c5bd;
+            cursor: not-allowed;
+            opacity: 0.7;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .inner-modal-btn.ghost {
+            background: none;
+            color: #7a5f4f;
+            font-size: 14px;
+            text-decoration: underline;
+            padding: 10px 0;
+            margin-top: 15px;
+        }
+
+        .inner-modal-btn.ghost:hover { color: #2d1f1a; }
+
+        /* Итоговый заказ */
+        .order-summary {
+            background: rgba(243, 227, 219, 0.4);
+            border-radius: 25px;
+            padding: 22px 25px;
+            margin-bottom: 22px;
+            text-align: left;
+        }
+
+        .order-summary .row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(212, 140, 122, 0.15);
+            font-size: 15px;
+            gap: 15px;
+        }
+
+        .order-summary .row:last-child { border-bottom: none; }
+
+        .order-summary .row .label { color: #7a5f4f; font-weight: 500; flex-shrink: 0; }
+        .order-summary .row .value { color: #2d1f1a; font-weight: 600; text-align: right; word-break: break-word; }
+
+        /* ИТОГОВАЯ СУММА — ОБНОВЛЕНО */
+        .order-total {
+            background: linear-gradient(135deg, #f3e3db, #e8d3c9);
+            border-radius: 20px;
+            padding: 20px 25px;
+            margin-bottom: 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .order-total .label {
+            font-weight: 700;
+            font-size: 20px;
+            color: #2d1f1a;
+        }
+
+        .order-total .value {
+            font-family: 'Raleway', sans-serif;
+            font-size: 30px;
+            color: #d48c7a;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .order-total .note {
+            font-size: 12px;
+            color: #7a5f4f;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        /* Контакты в заказе */
+        .order-contacts {
+            background: rgba(243, 227, 219, 0.4);
+            border-radius: 25px;
+            padding: 22px 25px;
+            margin-bottom: 22px;
+            text-align: left;
+        }
+
+        .order-contacts .contact-title {
+            font-weight: 600;
+            font-size: 14px;
+            color: #d48c7a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .order-contacts .input-group {
+            margin-bottom: 15px;
+        }
+
+        .order-contacts .input-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .order-contacts label {
+            display: block;
+            font-size: 13px;
+            color: #7a5f4f;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .order-contacts label .required {
+            color: #d48c7a;
+        }
+
+        .order-contacts input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 14px;
+            border: 2px solid rgba(240, 232, 227, 0.8);
+            background: rgba(255, 255, 255, 0.8);
+            font-family: 'Raleway', sans-serif;
+            font-size: 15px;
+            color: #2d1f1a;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .order-contacts input:focus {
+            border-color: #d48c7a;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(212, 140, 122, 0.1);
+        }
+
+        .order-contacts input.invalid {
+            border-color: #e74c3c;
+            background: #fff5f5;
+        }
+
+        .order-contacts .error-text {
+            display: none;
+            font-size: 12px;
+            color: #e74c3c;
+            margin-top: 4px;
+        }
+
+        .order-contacts input.invalid + .error-text {
+            display: block;
+        }
+
+        /* АДАПТИВ */
+        @media (max-width: 1024px) {
+            .grid { grid-template-columns: repeat(3, 1fr); }
+            .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .hero-left h1 { font-size: 40px; }
+            .hero-buttons { justify-content: center; }
+            .about-grid { grid-template-columns: 1fr; }
+            .header-inner { flex-direction: column; gap: 12px; }
+            .header-links { flex-wrap: wrap; justify-content: center; }
+            .hero-right { height: 280px; }
+            .hero-right.zoomed { transform: scale(1.2) translate(0, 10%); }
+            .about-img { height: 242px; }
+            .grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .reviews-grid { grid-template-columns: 1fr; }
+            .section-block .section-header h2 { font-size: 40px; }
+            .cake-photo-zoom, .filling-photo-zoom { height: 260px; }
+            .cake-photo-zoom:hover, .filling-photo-zoom:hover { transform: scale(1.2); }
+            .cake-photo-zoom .cake-name-overlay h3,
+            .filling-photo-zoom .filling-name-overlay h3 { font-size: 22px; }
+            .work-card { flex: 0 0 220px; height: 260px; }
+            .constructor { padding: 25px 18px 20px; border-radius: 30px; max-width: 100%; }
+            .constructor h2 { font-size: 34px; }
+            .constructor-cake-photo { height: 260px; }
+            .constructor-cake-photo .cake-name-overlay { font-size: 24px; }
+            .constructor-cake-photo .weight-overlay { font-size: 20px; padding: 8px 14px; }
+            .constructor-cake-photo .filling-overlay::after { font-size: 13px; }
+            .constructor-actions { grid-template-columns: repeat(2, 1fr); }
+            .inner-modal { padding: 25px 18px 20px; border-radius: 30px; max-width: 100%; min-height: auto; }
+            .inner-modal h3 { font-size: 34px; }
+            .opt-card { flex: 0 0 150px; height: 200px; }
+            .opt-card:hover { transform: scale(1.3); }
+            .inner-modal .scroll-row { padding: 30px 5px 30px; }
+            .opt-img.weight-stub { font-size: 48px; }
+            .opt-body .name { font-size: 13px; }
+            .logo-img { width: 50px; height: 50px; }
+            .logo-text { font-size: 28px; }
+            .order-total .value { font-size: 24px; }
+            .order-total .label { font-size: 18px; }
+        }
+
+        @media (max-width: 480px) {
+            .grid { grid-template-columns: 1fr; }
+            .cake-photo-zoom, .filling-photo-zoom { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo">
+            <img src="logo.png" alt="ТОРТИКИ" class="logo-img">
+            <div class="logo-text">
+                ТОРТИКИ
+                <small>ручная работа • Воронеж</small>
+            </div>
+        </div>
+        <div class="header-links">
+            <a href="#catalog">Каталог</a>
+            <a href="#fillings">Начинки</a>
+            <a href="#works">Мои работы</a>
+            <a href="#reviews">Отзывы</a>
+            <a href="#faq">Вопросы</a>
+            <a href="#about">О нас</a>
+            <a href="#" class="btn-contact-header" onclick="openModal()">📞 Связаться со мной</a>
+        </div>
+    </div>
+</header>
+
+<section class="container hero">
+    <div class="hero-left">
+        <h1>Торты, созданные для <span>самых тёплых</span> моментов</h1>
+        <p>Натуральные ингредиенты, авторский дизайн и любовь в каждом торте. Доставка по Воронежу.</p>
+        <div class="hero-buttons">
+            <a href="#catalog" class="btn-primary">Смотреть торты</a>
+        </div>
+    </div>
+    <div class="hero-right" id="heroImage"></div>
+</section>
+
+<section class="section-block transparent" id="catalog">
+    <div class="container">
+        <div class="section-header">
+            <h2>Наши торты</h2>
+            <p>выберете нежное лакомство для особого дня</p>
+        </div>
+        <div class="grid">
+            <div class="cake-card" data-cake-name="Классический медовик" data-cake-img="cake1.jpg">
+                <div class="cake-photo-zoom">
+                    <div class="cake-bg" style="background-image: url('cake1.jpg');"></div>
+                    <div class="cake-name-overlay"><h3>Классический медовик</h3></div>
+                </div>
+                <div class="cake-bottom">
+                    <div class="desc">Нежный мёд, сливочный крем и хрустящая карамель</div>
+                    <button class="btn-order" onclick="openConstructor(this)">Выбрать</button>
+                </div>
+            </div>
+            <div class="cake-card" data-cake-name="Шоколадный фондан" data-cake-img="cake2.jpg">
+                <div class="cake-photo-zoom">
+                    <div class="cake-bg" style="background-image: url('cake2.jpg');"></div>
+                    <div class="cake-name-overlay"><h3>Шоколадный фондан</h3></div>
+                </div>
+                <div class="cake-bottom">
+                    <div class="desc">С жидкой начинкой и ореховым пралине</div>
+                    <button class="btn-order" onclick="openConstructor(this)">Выбрать</button>
+                </div>
+            </div>
+            <div class="cake-card" data-cake-name="Красный Бархат" data-cake-img="cake3.jpg">
+                <div class="cake-photo-zoom">
+                    <div class="cake-bg" style="background-image: url('cake3.jpg');"></div>
+                    <div class="cake-name-overlay"><h3>Красный Бархат</h3></div>
+                </div>
+                <div class="cake-bottom">
+                    <div class="desc">Бархатный бисквит с крем-чизом и ягодным соусом</div>
+                    <button class="btn-order" onclick="openConstructor(this)">Выбрать</button>
+                </div>
+            </div>
+            <div class="cake-card" data-cake-name="Классический Наполеон" data-cake-img="cake4.jpg">
+                <div class="cake-photo-zoom">
+                    <div class="cake-bg" style="background-image: url('cake4.jpg');"></div>
+                    <div class="cake-name-overlay"><h3>Классический Наполеон</h3></div>
+                </div>
+                <div class="cake-bottom">
+                    <div class="desc">Хрустящие коржи с нежным заварным кремом</div>
+                    <button class="btn-order" onclick="openConstructor(this)">Выбрать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-block transparent" id="fillings">
+    <div class="container">
+        <div class="section-header">
+            <h2>Начинки</h2>
+            <p>такие начинки есть у меня</p>
+        </div>
+        <div class="grid">
+            <div class="filling-card">
+                <div class="filling-photo-zoom">
+                    <div class="filling-bg" style="background-image: url('filling1.jpg');"></div>
+                    <div class="filling-name-overlay"><h3>Клубника с маскарпоне</h3></div>
+                </div>
+            </div>
+            <div class="filling-card">
+                <div class="filling-photo-zoom">
+                    <div class="filling-bg" style="background-image: url('filling2.jpg');"></div>
+                    <div class="filling-name-overlay"><h3>Шоколадный ганаш</h3></div>
+                </div>
+            </div>
+            <div class="filling-card">
+                <div class="filling-photo-zoom">
+                    <div class="filling-bg" style="background-image: url('filling3.jpg');"></div>
+                    <div class="filling-name-overlay"><h3>Фисташковый крем</h3></div>
+                </div>
+            </div>
+            <div class="filling-card">
+                <div class="filling-photo-zoom">
+                    <div class="filling-bg" style="background-image: url('filling4.jpg');"></div>
+                    <div class="filling-name-overlay"><h3>Карамель с солью</h3></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-block transparent" id="works">
+    <div class="container">
+        <div class="section-header">
+            <h2>Мои работы</h2>
+            <p>Примеры тортов, которые я уже испекла</p>
+        </div>
+        <div class="horizontal-scroll">
+            <div class="work-card">
+                <div class="work-bg" style="background-image: url('work1.jpg');"></div>
+                <div class="work-name-overlay"><h3>Свадебный торт</h3><div class="desc">Двухъярусный с живыми цветами</div></div>
+            </div>
+            <div class="work-card">
+                <div class="work-bg" style="background-image: url('work2.jpg');"></div>
+                <div class="work-name-overlay"><h3>Детский торт</h3><div class="desc">С мастикой и фигурками зверей</div></div>
+            </div>
+            <div class="work-card">
+                <div class="work-bg" style="background-image: url('work3.jpg');"></div>
+                <div class="work-name-overlay"><h3>Медовый торт</h3><div class="desc">С кремом из варёной сгущёнки</div></div>
+            </div>
+            <div class="work-card">
+                <div class="work-bg" style="background-image: url('work4.jpg');"></div>
+                <div class="work-name-overlay"><h3>Ягодный мусс</h3><div class="desc">На зеркальной глазури</div></div>
+            </div>
+            <div class="work-card">
+                <div class="work-bg" style="background-image: url('work5.jpg');"></div>
+                <div class="work-name-overlay"><h3>Торт на Хэллоуин</h3><div class="desc">С тыквой и корицей</div></div>
+            </div>
+            <div class="work-card">
+                <div class="work-bg" style="background-image: url('work6.jpg');"></div>
+                <div class="work-name-overlay"><h3>Валентиновский</h3><div class="desc">С малиной и красным бархатом</div></div>
+            </div>
+            <div class="work-card">
+                <div class="work-bg" style="background-image: url('work7.jpg');"></div>
+                <div class="work-name-overlay"><h3>Новогодний</h3><div class="desc">С пряностями и снежинками</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-block transparent" id="reviews">
+    <div class="container">
+        <div class="section-header">
+            <h2>Отзывы</h2>
+            <p>Что говорят наши клиенты</p>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">"Заказывала медовик на день рождения дочки — все гости были в восторге! Нежный, ароматный, тает во рту. Ольга, спасибо огромное!"</div>
+                <div class="review-author">
+                    <div class="review-avatar">А</div>
+                    <div><div class="review-name">Анна Петрова</div><div class="review-date">2 недели назад</div></div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">"Заказывали свадебный торт — это было произведение искусства! Гости до сих пор вспоминают. Очень вкусно и красиво!"</div>
+                <div class="review-author">
+                    <div class="review-avatar">М</div>
+                    <div><div class="review-name">Мария Иванова</div><div class="review-date">1 месяц назад</div></div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">"Лучшие торты в Воронеже! Всегда свежие, всегда вкусные. Заказываем уже второй год подряд на все праздники."</div>
+                <div class="review-author">
+                    <div class="review-avatar">Е</div>
+                    <div><div class="review-name">Елена Смирнова</div><div class="review-date">3 недели назад</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-block transparent" id="faq">
+    <div class="container">
+        <div class="section-header">
+            <h2>Частые вопросы</h2>
+            <p>Всё, что важно знать перед заказом</p>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">За сколько дней нужно заказывать торт?</div>
+                <div class="faq-answer">Обычно мы принимаем заказы за 3–5 дней до даты. Если торт сложный (многоярусный, с фигурками) — лучше за 7–10 дней. Но если нужно срочно, напишите — постараемся помочь!</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Есть ли доставка?</div>
+                <div class="faq-answer">Да, доставляем по Воронежу. Стоимость зависит от района. При заказе от 3000 ₽ доставка в пределах города — бесплатно.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Можно ли заказать торт по своему дизайну?</div>
+                <div class="faq-answer">Конечно! Напишите нам в Telegram или позвоните — обсудим все детали: цвета, декор, надпись, форму. Воплотим в жизнь любую вашу идею.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Какие начинки вы используете?</div>
+                <div class="faq-answer">Только натуральные: сливки 33%, творожный сыр, бельгийский шоколад, свежие ягоды и фрукты. Никаких маргаринов и заменителей.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Как можно оплатить заказ?</div>
+                <div class="faq-answer">Наличными при получении, переводом на карту или по QR-коду. Обсудим удобный для вас способ в Telegram.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="container about-grid">
+        <div class="about-text">
+            <h2>Для нас важно, чтобы было вкусно и по-домашнему</h2>
+            <p>Меня зовут Ольга, и я создаю торты уже 10 лет. Каждый торт — это частичку тепла и любви к своему делу от эскиза до финальной ягодки.</p>
+            <p>Использую только натуральные продукты: сливки 33%, творожный сыр, бельгийский шоколад, свежие ягоды и фрукты. Никаких маргаринов и заменителей.</p>
+            <p>🎂 Закажите торт на день рождения, свадьбу или просто так, чтобы побаловать себя и близких.</p>
+        </div>
+        <div class="about-img"></div>
+    </div>
+</section>
+
+<footer>
+    <div class="container footer-grid">
+        <div>
+            <div style="font-family:'Sacramento',cursive;font-size:28px;color:#d48c7a;">🍰 ТОРТИКИ</div>
+            <p style="opacity:0.7; margin-top: 6px;">© 2026 Все права защищены</p>
+        </div>
+        <div class="social">
+            <a href="#" onclick="openTelegram()">Telegram</a>
+            <a href="tel:+79081312400">📞 Позвонить</a>
+        </div>
+        <div>
+            <p>📞 +7 908 131-24-00</p>
+            <p>✉️ lyolya_@bk.ru</p>
+        </div>
+    </div>
+</footer>
+
+<div class="modal-overlay" id="modal">
+    <div class="modal">
+        <h3>🍰 Связаться со мной</h3>
+        <p>Выберите удобный способ — обсудим ваш идеальный торт!</p>
+        <div class="modal-buttons">
+            <a href="#" class="btn-contact btn-tg-modal" onclick="openTelegram()">✈️ Написать в Telegram</a>
+            <a href="tel:+79081312400" class="btn-contact btn-phone-modal">📞 Позвонить</a>
+        </div>
+        <button class="btn-close" onclick="closeModal()">Закрыть</button>
+    </div>
+</div>
+
+<div class="constructor-overlay" id="constructorModal">
+    <div class="constructor">
+        <h2 id="constructorTitle">Собери свой торт</h2>
+        <p class="constructor-subtitle" id="constructorSubtitle">Выберите параметры — мы приготовим именно то, что вы хотите</p>
+
+        <div class="constructor-cake-photo" id="constructorCakePhoto">
+            <div class="cake-name-overlay" id="constructorCakeName">Классический медовик</div>
+            <div class="weight-overlay" id="constructorWeightOverlay"></div>
+            <div class="filling-overlay" id="constructorFillingOverlay"></div>
+        </div>
+
+        <div class="constructor-actions">
+            <button class="constructor-btn" id="constructorBtnFilling" onclick="openInnerModal('filling')">Начинка</button>
+            <button class="constructor-btn" id="constructorBtnWeight" onclick="openInnerModal('weight')">Вес</button>
+            <button class="constructor-btn" id="constructorBtnDate" onclick="openInnerModal('date')">Дата</button>
+            <button class="constructor-btn" id="constructorBtnWishes" onclick="openInnerModal('wishes')">Пожелания</button>
+        </div>
+
+        <button class="constructor-order-btn" id="constructorOrderBtn" disabled onclick="submitConstructorOrder()">
+            🍰 Заказать
+        </button>
+
+        <button class="constructor-close" onclick="closeConstructor()">Закрыть</button>
+    </div>
+</div>
+
+<div class="inner-modal-overlay" id="innerFillingModal">
+    <div class="inner-modal">
+        <h3>Выберите начинку</h3>
+        <p class="modal-subtitle">Наведите мышь, чтобы рассмотреть, кликните — чтобы выбрать</p>
+
+        <div class="scroll-row" id="innerFillingsRow">
+            <div class="opt-card" data-value="Клубника с маскарпоне" data-img="filling1.jpg">
+                <div class="opt-img" style="background-image: url('filling1.jpg');"></div>
+                <div class="opt-body"><div class="name">Клубника с маскарпоне</div></div>
+            </div>
+            <div class="opt-card" data-value="Шоколадный ганаш" data-img="filling2.jpg">
+                <div class="opt-img" style="background-image: url('filling2.jpg');"></div>
+                <div class="opt-body"><div class="name">Шоколадный ганаш</div></div>
+            </div>
+            <div class="opt-card" data-value="Фисташковый крем" data-img="filling3.jpg">
+                <div class="opt-img" style="background-image: url('filling3.jpg');"></div>
+                <div class="opt-body"><div class="name">Фисташковый крем</div></div>
+            </div>
+            <div class="opt-card" data-value="Карамель с солью" data-img="filling4.jpg">
+                <div class="opt-img" style="background-image: url('filling4.jpg');"></div>
+                <div class="opt-body"><div class="name">Карамель с солью</div></div>
+            </div>
+        </div>
+
+        <button class="inner-modal-btn ghost" onclick="closeInnerModal('innerFillingModal')">Закрыть</button>
+    </div>
+</div>
+
+<div class="inner-modal-overlay" id="innerWeightModal">
+    <div class="inner-modal">
+        <h3>Выберите вес</h3>
+        <p class="modal-subtitle">Наведите мышь, чтобы рассмотреть, кликните — чтобы выбрать</p>
+
+        <div class="scroll-row" id="innerWeightsRow">
+            <div class="opt-card" data-value="2 кг">
+                <div class="opt-img weight-stub">2 кг</div>
+            </div>
+            <div class="opt-card" data-value="3 кг">
+                <div class="opt-img weight-stub">3 кг</div>
+            </div>
+            <div class="opt-card" data-value="4 кг">
+                <div class="opt-img weight-stub">4 кг</div>
+            </div>
+            <div class="opt-card" data-value="5 кг">
+                <div class="opt-img weight-stub">5 кг</div>
+            </div>
+        </div>
+
+        <button class="inner-modal-btn ghost" onclick="closeInnerModal('innerWeightModal')">Закрыть</button>
+    </div>
+</div>
+
+<div class="inner-modal-overlay" id="innerDateModal">
+    <div class="inner-modal">
+        <h3>Выберите дату</h3>
+        <p class="modal-subtitle">Заказ минимум за 2 дня до даты</p>
+
+        <div style="padding: 30px 20px;">
+            <input type="date" id="innerDateInput" style="
+                width: 100%;
+                max-width: 320px;
+                padding: 16px 20px;
+                border-radius: 20px;
+                border: 2px solid rgba(240, 232, 227, 0.8);
+                background: rgba(255, 255, 255, 0.8);
+                font-family: 'Raleway', sans-serif;
+                font-size: 18px;
+                color: #2d1f1a;
+                outline: none;
+                transition: 0.3s;
+                cursor: pointer;
+                text-align: center;
+            ">
+        </div>
+
+        <button class="inner-modal-btn primary" onclick="saveInnerDate()">Сохранить</button>
+        <button class="inner-modal-btn ghost" onclick="closeInnerModal('innerDateModal')">Закрыть</button>
+    </div>
+</div>
+
+<div class="inner-modal-overlay" id="innerWishesModal">
+    <div class="inner-modal">
+        <h3>Ваши пожелания</h3>
+        <p class="modal-subtitle">Расскажите, каким вы видите свой торт</p>
+
+        <textarea class="wishes-textarea" id="innerWishesInput" placeholder="Надпись на торте, дата, декор, цветовая гамма..."></textarea>
+
+        <button class="inner-modal-btn primary" onclick="saveInnerWishes()">Сохранить</button>
+        <button class="inner-modal-btn ghost" onclick="closeInnerModal('innerWishesModal')">Закрыть</button>
+    </div>
+</div>
+
+<div class="inner-modal-overlay" id="innerOrderModal">
+    <div class="inner-modal">
+        <h3>Ваш заказ</h3>
+        <p class="modal-subtitle">Проверьте детали и оставьте контакты</p>
+
+        <div class="order-summary" id="innerOrderSummary"></div>
+        <div class="order-total" id="innerOrderTotal"></div>
+
+        <div class="order-contacts">
+            <div class="contact-title">─── Ваши контакты ───</div>
+            <div class="input-group">
+                <label>Ваше имя <span class="required">*</span></label>
+                <input type="text" id="clientName" placeholder="Иван" maxlength="50" oninput="validateName()" onblur="validateName()">
+                <div class="error-text">Пожалуйста, введите имя (только буквы)</div>
+            </div>
+            <div class="input-group">
+                <label>Телефон <span class="required">*</span></label>
+                <input type="tel" id="clientPhone" placeholder="+7 (___) ___-__-__" oninput="maskPhone(this)" onblur="validatePhone()">
+                <div class="error-text">Введите корректный номер (10 цифр)</div>
+            </div>
+        </div>
+
+        <a href="#" class="inner-modal-btn tg" id="innerTgLink" target="_blank" onclick="return checkContacts()" disabled>✈️ Отправить в Telegram</a>
+        <button class="inner-modal-btn ghost" onclick="closeInnerModal('innerOrderModal')">Закрыть</button>
+    </div>
+</div>
+
+<script>
+    const TELEGRAM_USERNAME = 'lyolyakor';
+    const PRICE_PER_KG = 2000;
+
+    const constructorState = {
+        cake: '',
+        cakeImg: '',
+        filling: '',
+        fillingImg: '',
+        weight: '',
+        date: '',
+        wishes: '',
+        name: '',
+        phone: ''
+    };
+
+    // ========== МАСКА ТЕЛЕФОНА ==========
+    function maskPhone(input) {
+        let value = input.value.replace(/\D/g, '');
+        
+        if (value.startsWith('7')) {
+            value = value.substring(1);
+        }
+        if (value.startsWith('8')) {
+            value = value.substring(1);
+        }
+        
+        value = value.substring(0, 10);
+        
+        let formatted = '+7';
+        if (value.length > 0) {
+            formatted += ' (' + value.substring(0, 3);
+        }
+        if (value.length >= 3) {
+            formatted += ') ';
+        }
+        if (value.length > 3) {
+            formatted += value.substring(3, 6);
+        }
+        if (value.length > 6) {
+            formatted += '-' + value.substring(6, 8);
+        }
+        if (value.length > 8) {
+            formatted += '-' + value.substring(8, 10);
+        }
+        
+        input.value = formatted;
+        
+        if (value.length === 10) {
+            validatePhone();
+        }
+    }
+
+    // ========== ВАЛИДАЦИЯ ИМЕНИ ==========
+    function validateName() {
+        const input = document.getElementById('clientName');
+        const value = input.value.trim();
+        
+        const nameRegex = /^[А-Яа-яЁёA-Za-z\s\-]+$/;
+        
+        if (value.length > 0 && !nameRegex.test(value)) {
+            input.classList.add('invalid');
+            return false;
+        }
+        if (value.length === 0) {
+            input.classList.remove('invalid');
+            return false;
+        }
+        
+        input.classList.remove('invalid');
+        constructorState.name = value;
+        checkContactsButton();
+        return true;
+    }
+
+    // ========== ВАЛИДАЦИЯ ТЕЛЕФОНА ==========
+    function validatePhone() {
+        const input = document.getElementById('clientPhone');
+        const digits = input.value.replace(/\D/g, '');
+        
+        if (digits.length === 11 && digits.startsWith('7')) {
+            input.classList.remove('invalid');
+            constructorState.phone = input.value;
+            checkContactsButton();
+            return true;
+        } else if (digits.length === 10) {
+            input.classList.remove('invalid');
+            constructorState.phone = '+7' + digits;
+            checkContactsButton();
+            return true;
+        } else {
+            input.classList.add('invalid');
+            return false;
+        }
+    }
+
+    // ========== ПРОВЕРКА КНОПКИ "ОТПРАВИТЬ" ==========
+    function checkContactsButton() {
+        const nameInput = document.getElementById('clientName');
+        const phoneInput = document.getElementById('clientPhone');
+        const tgBtn = document.getElementById('innerTgLink');
+        
+        const nameValid = nameInput.value.trim().length > 0 && /^[А-Яа-яЁёA-Za-z\s\-]+$/.test(nameInput.value.trim());
+        const phoneDigits = phoneInput.value.replace(/\D/g, '');
+        const phoneValid = phoneDigits.length >= 11;
+        
+        if (nameValid && phoneValid) {
+            tgBtn.disabled = false;
+            tgBtn.style.background = 'linear-gradient(135deg, #e8b3a0, #dba08c)';
+            tgBtn.style.opacity = '1';
+            tgBtn.style.cursor = 'pointer';
+        } else {
+            tgBtn.disabled = true;
+            tgBtn.style.background = '#d4c5bd';
+            tgBtn.style.opacity = '0.7';
+            tgBtn.style.cursor = 'not-allowed';
+        }
+    }
+
+    // ========== ПРОВЕРКА ПЕРЕД ОТПРАВКОЙ ==========
+    function checkContacts() {
+        const nameInput = document.getElementById('clientName');
+        const phoneInput = document.getElementById('clientPhone');
+        
+        const nameValid = validateName();
+        const phoneValid = validatePhone();
+        
+        if (!nameValid || !phoneValid) {
+            return false;
+        }
+        
+        const wishesText = constructorState.wishes.trim() ? constructorState.wishes.trim() : 'нет';
+        const total = getOrderTotal();
+        
+        const message = `🍰 Новый заказ с сайта:
+• Торт: ${constructorState.cake}
+• Начинка: ${constructorState.filling}
+• Вес: ${constructorState.weight}
+• Дата: ${formatDate(constructorState.date)}
+• Пожелания: ${wishesText}
+• Итого: ${total} ₽ (без дополнений)
+
+👤 Имя: ${constructorState.name}
+📞 Телефон: ${constructorState.phone}`;
+
+        const encodedMessage = encodeURIComponent(message);
+        document.getElementById('innerTgLink').href = `https://t.me/${TELEGRAM_USERNAME}?text=${encodedMessage}`;
+        
+        return true;
+    }
+
+    // ========== ФОРМАТИРОВАНИЕ ДАТЫ ==========
+    function formatDate(dateStr) {
+        if (!dateStr) return '';
+        const [year, month, day] = dateStr.split('-');
+        return `${day}.${month}.${year}`;
+    }
+
+    // ========== ПОДСЧЁТ СУММЫ ==========
+    function getOrderTotal() {
+        if (!constructorState.weight) return 0;
+        const weightNum = parseFloat(constructorState.weight);
+        return weightNum * PRICE_PER_KG;
+    }
+
+    // ========== ОТКРЫТИЕ КОНСТРУКТОРА ==========
+    function openConstructor(btn) {
+        const card = btn.closest('.cake-card');
+        const cakeName = card.dataset.cakeName;
+        const cakeImg = card.dataset.cakeImg;
+
+        constructorState.cake = cakeName;
+        constructorState.cakeImg = cakeImg;
+        constructorState.filling = '';
+        constructorState.fillingImg = '';
+        constructorState.weight = '';
+        constructorState.date = '';
+        constructorState.wishes = '';
+        constructorState.name = '';
+        constructorState.phone = '';
+
+        document.getElementById('constructorTitle').textContent = 'Собери свой торт';
+        document.getElementById('constructorTitle').classList.remove('success');
+        document.getElementById('constructorSubtitle').textContent = 'Выберите параметры — мы приготовим именно то, что вы хотите';
+        document.getElementById('constructorSubtitle').classList.remove('success');
+
+        document.getElementById('constructorCakeName').textContent = cakeName;
+        document.getElementById('constructorCakePhoto').style.backgroundImage = `url('${cakeImg}')`;
+
+        document.getElementById('constructorFillingOverlay').classList.remove('visible');
+        document.getElementById('constructorFillingOverlay').style.backgroundImage = '';
+        document.getElementById('constructorWeightOverlay').classList.remove('visible');
+        document.getElementById('constructorWeightOverlay').textContent = '';
+
+        document.getElementById('constructorBtnFilling').classList.remove('filled');
+        document.getElementById('constructorBtnWeight').classList.remove('filled');
+        document.getElementById('constructorBtnDate').classList.remove('filled');
+        document.getElementById('constructorBtnDate').textContent = 'Дата';
+        document.getElementById('constructorBtnWishes').classList.remove('filled');
+        document.getElementById('constructorOrderBtn').disabled = true;
+
+        document.querySelectorAll('#innerFillingsRow .opt-card').forEach(c => c.classList.remove('selected'));
+        document.querySelectorAll('#innerWeightsRow .opt-card').forEach(c => c.classList.remove('selected'));
+        document.getElementById('innerWishesInput').value = '';
+
+        const today = new Date();
+        const minDate = new Date(today);
+        minDate.setDate(minDate.getDate() + 2);
+        
+        const yyyy = minDate.getFullYear();
+        const mm = String(minDate.getMonth() + 1).padStart(2, '0');
+        const dd = String(minDate.getDate()).padStart(2, '0');
+        
+        const dateInput = document.getElementById('innerDateInput');
+        dateInput.min = `${yyyy}-${mm}-${dd}`;
+        dateInput.value = '';
+
+        document.getElementById('constructorModal').classList.add('active');
+    }
+
+    function closeConstructor() {
+        document.getElementById('constructorModal').classList.remove('active');
+    }
+
+    function openInnerModal(type) {
+        if (type === 'filling') {
+            document.getElementById('innerFillingModal').classList.add('active');
+        } else if (type === 'weight') {
+            document.getElementById('innerWeightModal').classList.add('active');
+        } else if (type === 'date') {
+            document.getElementById('innerDateModal').classList.add('active');
+        } else if (type === 'wishes') {
+            document.getElementById('innerWishesInput').value = constructorState.wishes;
+            document.getElementById('innerWishesModal').classList.add('active');
+        }
+    }
+
+    function closeInnerModal(id) {
+        document.getElementById(id).classList.remove('active');
+    }
+
+    document.querySelectorAll('#innerFillingsRow .opt-card').forEach(card => {
+        card.addEventListener('click', () => {
+            document.querySelectorAll('#innerFillingsRow .opt-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+
+            constructorState.filling = card.dataset.value;
+            constructorState.fillingImg = card.dataset.img;
+
+            const overlay = document.getElementById('constructorFillingOverlay');
+            overlay.style.backgroundImage = `url('${constructorState.fillingImg}')`;
+            overlay.setAttribute('data-filling-name', constructorState.filling);
+            overlay.classList.add('visible');
+
+            document.getElementById('constructorBtnFilling').classList.add('filled');
+
+            updateConstructorHeader();
+            checkConstructorForm();
+
+            setTimeout(() => closeInnerModal('innerFillingModal'), 300);
+        });
+    });
+
+    document.querySelectorAll('#innerWeightsRow .opt-card').forEach(card => {
+        card.addEventListener('click', () => {
+            document.querySelectorAll('#innerWeightsRow .opt-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            constructorState.weight = card.dataset.value;
+
+            const overlay = document.getElementById('constructorWeightOverlay');
+            overlay.textContent = constructorState.weight;
+            overlay.classList.add('visible');
+
+            document.getElementById('constructorBtnWeight').classList.add('filled');
+
+            updateConstructorHeader();
+            checkConstructorForm();
+
+            setTimeout(() => closeInnerModal('innerWeightModal'), 300);
+        });
+    });
+
+    function saveInnerDate() {
+        const dateInput = document.getElementById('innerDateInput');
+        const value = dateInput.value;
+        
+        if (!value) {
+            dateInput.style.borderColor = '#e74c3c';
+            setTimeout(() => {
+                dateInput.style.borderColor = 'rgba(240, 232, 227, 0.8)';
+            }, 1500);
+            return;
+        }
+        
+        constructorState.date = value;
+        
+        const btn = document.getElementById('constructorBtnDate');
+        btn.classList.add('filled');
+        btn.textContent = formatDate(value);
+        
+        checkConstructorForm();
+        closeInnerModal('innerDateModal');
+    }
+
+    function saveInnerWishes() {
+        constructorState.wishes = document.getElementById('innerWishesInput').value;
+
+        const btn = document.getElementById('constructorBtnWishes');
+        if (constructorState.wishes.trim()) {
+            btn.classList.add('filled');
+        } else {
+            btn.classList.remove('filled');
+        }
+
+        closeInnerModal('innerWishesModal');
+    }
+
+    function updateConstructorHeader() {
+        const title = document.getElementById('constructorTitle');
+        const subtitle = document.getElementById('constructorSubtitle');
+
+        if (constructorState.filling && constructorState.weight) {
+            title.textContent = 'Отличный выбор!';
+            title.classList.add('success');
+
+            subtitle.innerHTML = `<span style="color:#d48c7a;font-weight:700;font-size:22px;">${constructorState.cake}</span> с начинкой <span style="color:#d48c7a;font-weight:700;font-size:22px;">${constructorState.filling.toLowerCase()}</span>, вес <span style="color:#d48c7a;font-weight:700;font-size:22px;">${constructorState.weight}</span>`;
+            subtitle.classList.add('success');
+        } else {
+            title.textContent = 'Собери свой торт';
+            title.classList.remove('success');
+            subtitle.textContent = 'Выберите параметры — мы приготовим именно то, что вы хотите';
+            subtitle.classList.remove('success');
+        }
+    }
+
+    function checkConstructorForm() {
+        const btn = document.getElementById('constructorOrderBtn');
+        btn.disabled = !(constructorState.filling && constructorState.weight && constructorState.date);
+    }
+
+    function submitConstructorOrder() {
+        const wishesText = constructorState.wishes.trim() ? constructorState.wishes.trim() : 'нет';
+        const total = getOrderTotal();
+
+        document.getElementById('innerOrderSummary').innerHTML = `
+            <div class="row"><span class="label">Торт</span><span class="value">${constructorState.cake}</span></div>
+            <div class="row"><span class="label">Начинка</span><span class="value">${constructorState.filling}</span></div>
+            <div class="row"><span class="label">Вес</span><span class="value">${constructorState.weight}</span></div>
+            <div class="row"><span class="label">Дата</span><span class="value">${formatDate(constructorState.date)}</span></div>
+            <div class="row"><span class="label">Пожелания</span><span class="value">${wishesText}</span></div>
+        `;
+
+        document.getElementById('innerOrderTotal').innerHTML = `
+            <div>
+                <div class="label">Итого:</div>
+                <div class="note">без дополнений</div>
+            </div>
+            <div class="value">${total} ₽</div>
+        `;
+
+        document.getElementById('clientName').value = '';
+        document.getElementById('clientPhone').value = '';
+        document.getElementById('clientName').classList.remove('invalid');
+        document.getElementById('clientPhone').classList.remove('invalid');
+        constructorState.name = '';
+        constructorState.phone = '';
+        checkContactsButton();
+
+        document.getElementById('innerOrderModal').classList.add('active');
+    }
+
+    document.querySelectorAll('.inner-modal-overlay').forEach(overlay => {
+        overlay.addEventListener('click', function(e) {
+            if (e.target === this) this.classList.remove('active');
+        });
+    });
+
+    document.getElementById('constructorModal').addEventListener('click', function(e) {
+        if (e.target === this) closeConstructor();
+    });
+
+    document.getElementById('modal').addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.inner-modal-overlay').forEach(o => o.classList.remove('active'));
+            closeConstructor();
+            closeModal();
+        }
+    });
+
+    function openModal() {
+        document.getElementById('modal').classList.add('active');
+    }
+
+    function closeModal() {
+        document.getElementById('modal').classList.remove('active');
+    }
+
+    function openTelegram() {
+        window.open(`https://t.me/${TELEGRAM_USERNAME}`, '_blank');
+        closeModal();
+    }
+
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const item = question.parentElement;
+            document.querySelectorAll('.faq-item').forEach(other => {
+                if (other !== item) other.classList.remove('active');
+            });
+            item.classList.toggle('active');
+        });
+    });
+
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.cake-card, .filling-card, .work-card, .review-card, .faq-item').forEach(el => {
+        observer.observe(el);
+    });
+
+    window.addEventListener('load', () => {
+        const heroImage = document.getElementById('heroImage');
+        
+        setTimeout(() => {
+            heroImage.classList.add('zoomed');
+        }, 500);
+        
+        setTimeout(() => {
+            heroImage.classList.remove('zoomed');
+            heroImage.classList.add('returning');
+            
+            setTimeout(() => {
+                heroImage.classList.remove('returning');
+            }, 2100);
+        }, 2500);
+    });
+</script>
+
+</body>
+</html>
